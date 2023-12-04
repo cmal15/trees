@@ -3,6 +3,7 @@ package Trees;
 import java.util.*;
 import Trees.AT.*;
 import Trees.Heap.*;
+import Trees.AVL.*;
 
 public class Menu {
     

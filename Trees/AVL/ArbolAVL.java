@@ -1,7 +1,7 @@
 package Trees.AVL;
 
 public class ArbolAVL {
-    NodoAVL raiz;
+    public NodoAVL raiz;
 
     public NodoAVL obtenerRaiz() {
         return raiz;
