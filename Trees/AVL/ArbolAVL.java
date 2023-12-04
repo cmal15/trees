@@ -1,3 +1,4 @@
+package Trees.AVL;
 
 public class ArbolAVL {
     NodoAVL raiz;
