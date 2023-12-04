@@ -168,10 +168,10 @@ public class Menu {
                         break;
                     }
                     System.out.println("Preorden:");
-                    System.out.println(aTree.postOrden());
-                    System.out.println("Preorden:");
-                    System.out.println(aTree.postOrden());
-                    System.out.println("Preorden:");
+                    System.out.println(aTree.preOrden());
+                    System.out.println("Inorden:");
+                    System.out.println(aTree.inOrden());
+                    System.out.println("Postorden:");
                     System.out.println(aTree.postOrden());
                     break;
                 case 3:

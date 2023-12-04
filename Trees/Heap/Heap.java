@@ -35,6 +35,10 @@ public class Heap{
         if(root == null){
             return;
         }
+        if(root.isLeaf()){
+            root = null;
+            return;
+        }
         Node current = findLastNode();
         current.swap(root);
 
