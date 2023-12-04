@@ -1,3 +1,4 @@
+package Trees.AVL;
 
 public class NodoAVL {
     int clave, altura;
