@@ -5,7 +5,7 @@ import Trees.AT.*;
 import Trees.Heap.*;
 
 public class Menu {
-    f
+    
     private static Heap heap;
     private static ArithmethicTree aTree; 
     private static Scanner sc;
