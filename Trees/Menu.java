@@ -8,11 +8,13 @@ public class Menu {
     
     private static Heap heap;
     private static ArithmethicTree aTree; 
+    private static ArbolAVL avl;
     private static Scanner sc;
 
     public static void main(String[] args) {
         heap = null;
         aTree = null;
+        avl = null;
 
         sc = new Scanner(System.in);
         int op;
@@ -23,9 +25,10 @@ public class Menu {
             op = sc.nextInt();
             switch (op) {
                 case 1:
-                    /*
-                     * Menu AVL
-                     */
+                    if (avl == null) {
+                        avl = new ArbolAVL();
+                    }
+                    menu(avl);
                     break;
                 case 2:
                     if(heap == null){
@@ -51,6 +54,62 @@ public class Menu {
 
     }
 
+    
+    private static void menu(ArbolAVL arbol) {
+        int opcion;
+
+        do {
+            System.out.println(" **** Menu ****");
+            System.out.println("1. Agregar clave");
+            System.out.println("2. Buscar clave");
+            System.out.println("3. Eliminar clave");
+            System.out.println("4. Mostrar arbol AVL");
+            System.out.println("5. Salir");
+            System.out.print("Selecciona una opcion: ");
+            opcion = sc.nextInt();
+
+            switch (opcion) {
+
+                case 1:
+                    System.out.print("Ingrese la clave que deseas insertar: ");
+                    int agregar = sc.nextInt();
+                    arbol.raiz = arbol.insertar(arbol.raiz, agregar);
+                    System.out.println("Clave insertada con Exito\n");
+                    break;
+
+                case 2:
+                    System.out.print("Ingresa el valor que deseas buscar: ");
+                    int buscarval = sc.nextInt();
+                    if (arbol.buscar(buscarval)) {
+                        System.out.println("El valor: " + buscarval + " SI se encuentra...\n");
+                    } else {
+                        System.out.println("El valor: " + buscarval + " NO se encuentra.,.\n");
+                    }
+                    break;
+
+                case 3:
+                    System.out.print("Ingresa la clave que deseas eliminar: ");
+                    int eliminarval = sc.nextInt();
+                    arbol.eliminar(eliminarval);
+                    System.out.println("Se elimino la clave con exito...\n");
+                    break;
+
+                case 4:
+                    System.out.println("Árbol AVL:");
+                    arbol.mostrarArbol();
+                    System.out.println(" ");
+                    break;
+
+                case 5:
+                    System.out.println("ADIOSSSS... :)");
+                    break;
+                default:
+                    System.out.println("Opcion NO valida, ingresa otro valor... >:v");
+            }
+        } while (opcion != 5);
+    }
+
+    
     private static void menu(Heap heap){
         int op, aux;
         do{
