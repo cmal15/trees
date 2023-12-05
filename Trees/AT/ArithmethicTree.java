@@ -167,22 +167,6 @@ public class ArithmethicTree {
         return false;
     }
 
-/*
-    public static LinkedList<String> postOrden(Node node){
-        LinkedList<String> list = new LinkedList<>();
-        postOrdenRecursive(node, list);
-        return list;
-    } 
-
-    private static void postOrdenRecursive(Node node, LinkedList<String> list){
-        if(node != null){
-            postOrdenRecursive(node.left, list);
-            postOrdenRecursive(node.right, list);
-            list.add(node.info);
-        }
-    }
-*/
-
     public LinkedList<String> preOrden(){
         LinkedList<String> list = new LinkedList<>();
         preOrden(root, list);
