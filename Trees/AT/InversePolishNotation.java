@@ -4,12 +4,9 @@ import java.util.Stack;
 
 public class InversePolishNotation {
     
-    //private LinkedList<String> operands;
     private static Stack<Double> stack;
 
     public InversePolishNotation(){
-        //operands = new LinkedList<>();
-        //stack = new Stack<>();
     }
 
     private static boolean isNumber(String s){
@@ -22,7 +19,6 @@ public class InversePolishNotation {
     }
 
     public static double resolve(LinkedList<String> list){
-       // System.out.println("List " + list.toString());
         double res = 0, op1, op2;
         stack = new Stack<>();
         for(String s: list){

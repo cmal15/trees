@@ -27,7 +27,6 @@ public class ArithmethicTree {
         
         for(int i = 0; i < tokens; i++){
             token = tokenizer.nextToken();
-            //System.out.println("token: "+token);
             if(isOperator(token.charAt(0))){
                 Node opeNode = new Node(Character.toString(token.charAt(0)));
                 opeNode.right = nodes.pop();
@@ -55,15 +54,12 @@ public class ArithmethicTree {
 
         for(int i = 0; i < s.length(); i++){
             char c = s.charAt(i);
-            //System.out.println(c);
             if(Character.isDigit(c)){
                 //Digit
                 String digits = "";
                 
                 while(Character.isDigit(s.charAt(i))){
-                    //digits.concat(Character.toString(s.charAt(i)));
                     digits += Character.toString(s.charAt(i));
-                    //System.out.println("digits: " + digits);
                     i++;
                 }
                 i--;
@@ -96,18 +92,14 @@ public class ArithmethicTree {
             
             }else{
                 //close parenthesis
-                //System.out.println(c);
                 
-                //System.out.println("Stack: " + stack.toString());
                 while(stack.peek() != "(") {
-                    //System.out.println("stack: " + stack.toString());
                     notation += stack.pop() + " ";
                 }
                 stack.pop();
                 
             }
         }
-        //System.out.println("Notation: " + notation + " si se hizo"  );
         return notation;
     }
 
