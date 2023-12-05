@@ -1,5 +1,4 @@
 package Trees.AT;
-//package
 
 import java.util.*;
 
@@ -8,6 +7,9 @@ public class ArithmethicTree {
     static char[] operators={'+','*','-','/'};
     static String[] stringOperators={"+","*","-","/"};
     Node root;
+    /*
+     * Constructor para el arbol aritmetico inicializando el opMap para la jerarquia de operaciones
+     */
     public ArithmethicTree(){
         opMap = new HashMap<>();
         opMap.put("+", 1);
@@ -17,6 +19,9 @@ public class ArithmethicTree {
         opMap.put("^", 3);
     }
  
+    /*
+    * Recibe una expresion como cadena y genera el arbol de expresion aritmetica
+    */
     public void parseExpression(String s){
         String notation = postFix(s), token;
         System.out.println("Notation: " + notation);
@@ -32,7 +37,6 @@ public class ArithmethicTree {
                 opeNode.right = nodes.pop();
                 opeNode.left = nodes.pop();
                 nodes.push(opeNode);
-                System.out.println(opeNode.info + " lc: " + opeNode.left.info + " rc: "+ opeNode.right.info);
             }else{
                 nodes.push(new Node(Character.toString(token.charAt(0))));
             }
@@ -41,6 +45,9 @@ public class ArithmethicTree {
 
     }
 
+    /*
+     * Obtiene la notacion postfija a partir de una cadena recibida
+     */
     public String postFix(String s){
         Stack<String> stack = new Stack<>();
         if(s.charAt(s.length()-1) != ')'){
@@ -103,6 +110,9 @@ public class ArithmethicTree {
         return notation;
     }
 
+    /*
+     * Retorna un verdadero si el caracter recibido es un operador
+     */
     public static boolean isOperator(char s){
         for(char c:operators){
             if(s == c){
@@ -112,6 +122,9 @@ public class ArithmethicTree {
         return false;
     }
 
+    /*
+     * Retorna verdadero si la cadena recibida es un operador
+     */
     public static boolean isOperator(String s){
         for(String c:stringOperators){
             if(s == c){
@@ -121,6 +134,9 @@ public class ArithmethicTree {
         return false;
     }
 
+    /*
+     * Retorna el resultado de la expresion ingresada en el arbol como un double
+     */
     public double resolve(){
         double res;
 
@@ -130,7 +146,10 @@ public class ArithmethicTree {
 
         return res;
     }
-
+    
+    /*
+     * Retorna una lista ligada que contiene los elementos del arbol en recorrido postOrden
+     */
     public LinkedList<String> postOrden(){
         LinkedList<String> list = new LinkedList<>();
         
@@ -139,6 +158,9 @@ public class ArithmethicTree {
         return list;
     }
 
+    /*
+     * Se ocupa para obtener el recorrido
+     */
     private void postOrden(Node current, LinkedList<String> list){
         if(current == null){
             return;
@@ -152,6 +174,9 @@ public class ArithmethicTree {
         list.add(current.info);
     }
     
+    /*
+     * Retorna verdadero si el arbol esta vacio
+     */
     public boolean isEmpty(){
         if(root == null){
             return true;
@@ -159,12 +184,18 @@ public class ArithmethicTree {
         return false;
     }
 
+    /*
+     * Retorna una lista ligada que contiene los elementos del arbol en recorrido preOrden
+     */
     public LinkedList<String> preOrden(){
         LinkedList<String> list = new LinkedList<>();
         preOrden(root, list);
         return list;
     }
 
+    /*
+     * Se ocupa para obtener el recorrido
+     */
     private void preOrden(Node node, LinkedList<String> list){
         if(node != null){
             list.add(node.info);
@@ -173,12 +204,18 @@ public class ArithmethicTree {
         }
     }
 
+    /*
+     * Retorna una lista ligada que contiene los elementos del arbol en recorrido inOrden
+     */
     public LinkedList<String> inOrden(){
         LinkedList<String> list = new LinkedList<>();
         inOrden(root, list);
         return list;
     }
 
+    /*
+     * Se ocupa para obtener el recorrido
+     */
     private void inOrden(Node node, LinkedList<String> list){
         if(node != null){
             inOrden(node.left, list);

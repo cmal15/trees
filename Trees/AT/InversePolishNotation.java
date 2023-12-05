@@ -9,6 +9,9 @@ public class InversePolishNotation {
     public InversePolishNotation(){
     }
 
+    /*
+     * Retorna un booleano verdadero en caso de que el String recibido sea un numero
+     */
     private static boolean isNumber(String s){
         try{
             Double.parseDouble(s);
@@ -18,6 +21,10 @@ public class InversePolishNotation {
         }
     }
 
+    /*
+     * Resuelve la expresion en notacion polaca inversa recivida en forma de lista, retonrando el 
+     * resultado como un Double
+     */
     public static double resolve(LinkedList<String> list){
         double res = 0, op1, op2;
         stack = new Stack<>();

@@ -4,12 +4,17 @@ import java.util.*;
 
 public class Heap{
     Node root;
-    //int size;
 
+    /*
+     * Constructor vacio con raiz nula
+     */
     public Heap(){
         root = null;
     }
 
+    /*
+     * Inserta la clave en el heap respetando su estructura
+     */
     public void insert(int n){
         if(root == null){
             root = new Node(n);
@@ -31,6 +36,9 @@ public class Heap{
         }
     }
 
+    /*
+     * Elimina la raiz del arbol realizando los cambios para que se respeten las reglas del heap
+     */
     public void deleteRoot(){
         if(root == null){
             return;
@@ -54,10 +62,16 @@ public class Heap{
         }
     }
 
+    /*
+     * Se ocupa para realizar los cambios para que se respeten las reglas del heap
+     */
     private void heapify(){
         heapify(root);
     }
 
+    /*
+     * Realiza los cambios correspondientes desde el nodo recibido para que se respeten las reglas del heap
+     */
     private void heapify(Node node){
         if(node == null){
             return;
@@ -80,6 +94,9 @@ public class Heap{
         }
     }
 
+    /*
+     * Encuentra el ultimo nodo en el arbol
+     */
     public Node findLastNode(){
         Queue<Node> q = new LinkedList<>();
         Node current = root;
@@ -96,6 +113,9 @@ public class Heap{
         return current;
     }
 
+    /*
+     * Encuentra el siguiente nodo que puede ser padre
+     */
     private Node findNextParetNode(){
         Queue<Node> q = new LinkedList<>();
         Node current = root;
@@ -111,14 +131,23 @@ public class Heap{
         return current;
     }
 
+    /*
+     * Realiza el recorrido inOrden del arbol
+     */
     public LinkedList<Integer> inOrden(){
         return Util.inOrden(root);
     }
 
+    /*
+     * Realiza el recorrido preOrden del arbol
+     */
     public LinkedList<Integer> preOrden(){
         return Util.preOrden(root);
     }
 
+    /*
+     * Realiza el recorrido postOrden del arbol
+     */
     public LinkedList<Integer> postOrden(){
         return Util.postOrden(root);
     }

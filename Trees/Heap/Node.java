@@ -6,11 +6,17 @@ public class Node {
     Node right;
     Node parent;
 
+    /*
+     * Constructor para inicializar el valor
+     */
     public Node(int value){
         this.value = value;
         left = right = parent = null;
     }
 
+    /*
+     * Inicializa todos los atributos
+     */
     public Node(int value, Node left, Node right, Node parent){
         this.value = value;
         this.left = left;
@@ -18,6 +24,9 @@ public class Node {
         this.parent = parent;
     }
 
+    /*
+     * Retorna verdadero si un nodo es una hoja
+     */
     public boolean isLeaf(){
         if(this.left == null && this.right == null){
             return true;
@@ -25,6 +34,9 @@ public class Node {
         return false;
     }
 
+    /*
+     * Retorna verdadero si el nodo tiene ambos hijos distintos de null
+     */
     public boolean isFull(){
         if(this.left != null && this.right != null){
             return true;
@@ -32,6 +44,9 @@ public class Node {
         return false;
     }
 
+    /*
+     * Retorna verdadero si ambos hijos son menores que el padre
+     */
     public boolean parentIsGreater(){
         if(this.left != null){
             if(this.left.value > this.value){
@@ -46,8 +61,10 @@ public class Node {
         return true;
     }
 
+    /*
+     * Intercambia los valores de dos nodos
+     */
     public void swap(Node otherNode) {
-        // Intercambia los valores
         int tempValue = this.value;
         this.value = otherNode.value;
         otherNode.value = tempValue;
